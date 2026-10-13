@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interactive distance-based terrain LOD visualization" />
+  <title>Terrain LOD Lab</title>
+</head>
+<body>
+  <div id="app">
+    <div id="viewport"></div>
+    <aside class="panel">
+      <p class="eyebrow">REAL-TIME GRAPHICS EXPERIMENT</p>
+      <h1>Terrain <span>LOD Lab</span></h1>
+      <p class="intro">Explore how distance-based level of detail reduces geometry while retaining nearby detail.</p>
+      <div class="group">
+        <label for="mode">Rendering mode</label>
+        <select id="mode">
+          <option value="auto">Adaptive LOD</option>
+          <option value="high">Full resolution (baseline)</option>
+          <option value="low">Low resolution</option>
+        </select>
+      </div>
+      <label class="toggle"><input id="wireframe" type="checkbox"/> Show mesh wireframe</label>
+      <label class="toggle"><input id="rotate" type="checkbox"/> Auto-rotate camera</label>
+      <div class="stats">
+        <div><span>Visible triangles</span><strong id="triangles">—</strong></div>
+        <div><span>Full-detail baseline</span><strong id="baseline">—</strong></div>
+        <div><span>Geometry reduction</span><strong id="reduction">—</strong></div>
+        <div><span>FPS (approx.)</span><strong id="fps">—</strong></div>
+        <div><span>High / Mid / Low tiles</span><strong id="levels">—</strong></div>
+      </div>
+      <p class="hint">Drag to orbit · Scroll to zoom · Right-drag to pan</p>
+      <p class="footnote">Procedural geometry · Custom tile-level LOD policy · Three.js renderer</p>
+    </aside>
+    <div class="credit">LOD transitions are discrete. Triangle count is not a direct measurement of GPU performance.</div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
